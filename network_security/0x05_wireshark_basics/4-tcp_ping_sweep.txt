@@ -1,1 +1,1 @@
-tcp.syn== 1 and tcp.ack== 1 tcp.flags.syn
+tcp.syn == 1 and tcp.ack == 1 tcp.flags.syn
