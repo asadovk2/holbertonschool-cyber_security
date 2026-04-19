@@ -4,7 +4,11 @@ tail -n 1000 auth.log | awk '
 /Failed password/ {
     for (i=1; i<=NF; i++) {
         if ($i == "for") {
-            user=$(i+1)
+            if ($(i+1) == "invalid") {
+                user=$(i+3)
+            } else {
+                user=$(i+1)
+            }
             fail[user]++
         }
     }
@@ -23,4 +27,4 @@ END {
             print u
         }
     }
-}' | head -n 1
+}'
